@@ -30,7 +30,7 @@ import java.io.InputStreamReader;
 
 /**
  *
- * @author gonchicrcos
+ * @author Gonxis
  */
 public class Main {
 
