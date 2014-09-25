@@ -37,6 +37,8 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+    
+    // Falta modificarlo para que sea modular
     private static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) throws IOException {
         
