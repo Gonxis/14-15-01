@@ -58,25 +58,11 @@ public class Main {
         array [pos] = valor;
         Main.apartado_a(array);
         
-        int suma = 0, mayor = 0, menor = 100;
-        int media = suma/dim;
-        Main.apartado_b_y_c(array, suma, mayor, menor);
-        System.out.println("");
-        System.out.println("El valor mayor de la Array es " + mayor);
-        System.out.println("El valor menor de la Array es " + menor); 
-        System.out.println("");
-        System.out.println("La media es " + media);
-        System.out.print("Los valores por encima de la media son: ");
-        for (int i = 0; i < array.length; i++){
-            if (array [i] > media){
-                System.out.print(array [i] + "  ");
-            }
-        }
+        Main.apartado_b_y_c(array, dim);
     }
     
     private static void correcto (int dim, int pos){
         if ((dim%2!=0) || (pos > dim)){
-            System.out.println("Error al introducir valor.");
             Runtime.getRuntime().exit(0);
         }
     }
@@ -99,8 +85,9 @@ public class Main {
         System.out.println("");
     }
     
-    private static void apartado_b_y_c (int [] array, int suma, int mayor, int menor){
+    private static void apartado_b_y_c (int [] array, int dim){
         
+        int mayor = 0, menor = 100;
         for (int i = 0; i < array.length; i++){
             if (array [i] > mayor){
                 mayor = array [i];
@@ -108,9 +95,23 @@ public class Main {
                 menor = array [i];
             }
         }
+        System.out.println("");
+        System.out.println("El valor mayor de la Array es " + mayor);
+        System.out.println("El valor menor de la Array es " + menor); 
+        System.out.println("");
         
+        int suma = 0;
         for (int i = 0; i < array.length; i++){
             suma = array [i] + suma;
-        }      
+        } 
+        
+        int media = suma/dim;
+        System.out.println("La media es " + media);
+        System.out.print("Los valores por encima de la media son: ");
+        for (int i = 0; i < array.length; i++){
+            if (array [i] > media){
+                System.out.print(array [i] + "  ");
+            }
+        }
     }
 }
