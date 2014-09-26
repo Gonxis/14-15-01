@@ -38,14 +38,49 @@ public class Main {
      * @param args the command line arguments
      */
     
-    // Falta modificarlo para que sea modular
     private static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) throws IOException {
         
-        //Lo primero que se tiene que hacer
         System.out.print("Introduce número de elementos de la Array Unidimensional: ");
         int dim = Integer.parseInt(stdin.readLine());
         int [] array = new int [dim];
+        int pos = 0, valor = 0;
+        Main.correcto(dim, pos);
+        Main.apartado1(array);
+        
+        do{
+            System.out.print("Indica posición: ");
+            pos = Integer.parseInt(stdin.readLine())-1;
+        } while (pos > dim || pos<=0);
+        Main.correcto(dim, pos);
+        System.out.print("Indica valor de la posición: ");
+        valor = Integer.parseInt(stdin.readLine());
+        array [pos] = valor;
+        Main.apartado_a(array);
+        
+        Main.apartado_b_y_c(array, dim);
+        System.out.println("");
+        System.out.println("El valor mayor de la Array es " + mayor);
+        System.out.println("El valor menor de la Array es " + menor);
+        
+        System.out.println("");
+        System.out.println("La media es " + media);
+        System.out.print("Los valores por encima de la media son: ");
+        for (int i = 0; i < array.length; i++){
+            if (array [i] > media){
+                System.out.print(array [i] + "  ");
+            }
+        }
+    }
+    
+    private static void correcto (int dim, int pos){
+        if ((dim%2!=0) || (pos > dim)){
+            System.out.println("Error al introducir valor.");
+            Runtime.getRuntime().exit(0);
+        }
+    }
+    
+    private static void apartado1 (int [] array){
         for (int i = 0; i < array.length; i++){
             array [i] = (int) (Math.random()*101);
         }
@@ -54,22 +89,17 @@ public class Main {
         }
         System.out.println("");
         System.out.println("");
-        
-        // Apartado A.
-        int pos = 0;
-        do{
-            System.out.print("Indica posición: ");
-            pos = Integer.parseInt(stdin.readLine())-1;
-        } while (pos > dim || pos<=0);
-        System.out.print("Indica valor de la posición: ");
-        int valor = Integer.parseInt(stdin.readLine());
-        array [pos] = valor;
+    }
+    
+    private static void apartado_a (int [] array){
         for (int i = 0; i < array.length; i++){
             System.out.print(array [i] + "  ");
         }
         System.out.println("");
+    }
+    
+    private static void apartado_b_y_c (int [] array, int dim){
         
-        //Apartado B.
         int mayor = 0;
         int menor = 100;
         for (int i = 0; i < array.length; i++){
@@ -79,24 +109,11 @@ public class Main {
                 menor = array [i];
             }
         }
-        System.out.println("");
-        System.out.println("El valor mayor de la Array es " + mayor);
-        System.out.println("El valor menor de la Array es " + menor);
         
-        System.out.println("");
-        
-        //Apartado C.
         int suma = 0;
         for (int i = 0; i < array.length; i++){
             suma = array [i] + suma;
         }
-        int media = suma/dim;
-        System.out.println("La media es " + media);
-        System.out.print("Los valores por encima de la media son: ");
-        for (int i = 0; i < array.length; i++){
-            if (array [i] > media){
-                System.out.print(array [i] + "  ");
-            }
-        }
+        int media = suma/dim;       
     }
 }
