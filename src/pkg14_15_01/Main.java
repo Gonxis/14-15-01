@@ -58,11 +58,12 @@ public class Main {
         array [pos] = valor;
         Main.apartado_a(array);
         
-        Main.apartado_b_y_c(array, dim);
+        int suma = 0, mayor = 0, menor = 100;
+        int media = suma/dim;
+        Main.apartado_b_y_c(array, suma, mayor, menor);
         System.out.println("");
         System.out.println("El valor mayor de la Array es " + mayor);
-        System.out.println("El valor menor de la Array es " + menor);
-        
+        System.out.println("El valor menor de la Array es " + menor); 
         System.out.println("");
         System.out.println("La media es " + media);
         System.out.print("Los valores por encima de la media son: ");
@@ -98,10 +99,8 @@ public class Main {
         System.out.println("");
     }
     
-    private static void apartado_b_y_c (int [] array, int dim){
+    private static void apartado_b_y_c (int [] array, int suma, int mayor, int menor){
         
-        int mayor = 0;
-        int menor = 100;
         for (int i = 0; i < array.length; i++){
             if (array [i] > mayor){
                 mayor = array [i];
@@ -110,10 +109,8 @@ public class Main {
             }
         }
         
-        int suma = 0;
         for (int i = 0; i < array.length; i++){
             suma = array [i] + suma;
-        }
-        int media = suma/dim;       
+        }      
     }
 }
