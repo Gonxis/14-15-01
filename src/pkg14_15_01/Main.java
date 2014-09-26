@@ -51,7 +51,7 @@ public class Main {
         do{
             System.out.print("Indica posición: ");
             pos = Integer.parseInt(stdin.readLine())-1;
-        } while (pos > dim || pos<=0);
+        } while (pos > dim || pos < 0);
         Main.correcto(dim, pos);
         System.out.print("Indica valor de la posición: ");
         valor = Integer.parseInt(stdin.readLine());
@@ -62,7 +62,7 @@ public class Main {
     }
     
     private static void correcto (int dim, int pos){
-        if ((dim%2!=0) || (pos > dim)){
+        if ((dim < 0) || (pos > dim)){
             Runtime.getRuntime().exit(0);
         }
     }
