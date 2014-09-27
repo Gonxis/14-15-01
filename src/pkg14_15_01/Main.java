@@ -40,21 +40,44 @@ public class Main {
     
     private static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) throws IOException {
-        
+        int dim=1; 
+        boolean entra=true;
+        do{
+        try{
         System.out.print("Introduce número de elementos de la Array Unidimensional: ");
-        int dim = Integer.parseInt(stdin.readLine());
+        dim = Integer.parseInt(stdin.readLine());
+        entra=true;
+        }catch(Exception e){
+            System.out.println("Valor fuera de rango");
+            entra=false;
+        }
+        }while(dim<1 || entra==false);
         int [] array = new int [dim];
         int pos = 0, valor = 0;
-        Main.correcto(dim, pos);
+        Main.correcto(dim, pos);// que es esto?
         Main.apartado1(array);
         
         do{
+            try{
             System.out.print("Indica posición: ");
             pos = Integer.parseInt(stdin.readLine())-1;
-        } while (pos > dim || pos < 0);
-        Main.correcto(dim, pos);
+            entra=true;
+            catch(Exception e){
+                System.out.println("Valor fuera de rango");
+                entra=false;
+            }
+        } while (pos > dim || pos < 0 || entra==false);
+        Main.correcto(dim, pos);//??
+        do{
+        try{
         System.out.print("Indica valor de la posición: ");
         valor = Integer.parseInt(stdin.readLine());
+        entra=true;
+        }catch(Exception e){
+            System.out.println("Valor fuera de rango");
+            entra=false;
+        }
+        }while(entra==false);
         array [pos] = valor;
         Main.apartado_a(array);
         
@@ -70,15 +93,13 @@ public class Main {
     private static void apartado1 (int [] array){
         for (int i = 0; i < array.length; i++){
             array [i] = (int) (Math.random()*101);
-        }
-        for (int i = 0; i < array.length; i++){
-            System.out.print(array [i] + "  ");
+            System.out.print(array [i] + "  ");//mismo bucle puedes llenar y imprimir 
         }
         System.out.println("");
         System.out.println("");
     }
     
-    private static void apartado_a (int [] array){
+    private static void apartado_a (int [] array){//imprime array modificado
         for (int i = 0; i < array.length; i++){
             System.out.print(array [i] + "  ");
         }
@@ -87,23 +108,19 @@ public class Main {
     
     private static void apartado_b_y_c (int [] array, int dim){
         
-        int mayor = 0, menor = 100;
+        int mayor = 0, menor = 100, suma=0;
         for (int i = 0; i < array.length; i++){
             if (array [i] > mayor){
                 mayor = array [i];
             } else if (array [i] < menor){
                 menor = array [i];
             }
+            suma=array[i]+suma; //ahorra un bucle
         }
         System.out.println("");
         System.out.println("El valor mayor de la Array es " + mayor);
         System.out.println("El valor menor de la Array es " + menor); 
         System.out.println("");
-        
-        int suma = 0;
-        for (int i = 0; i < array.length; i++){
-            suma = array [i] + suma;
-        } 
         
         int media = suma/dim;
         System.out.println("La media es " + media);
