@@ -22,4 +22,4 @@ B
 C
 Recorrer Array
 Hacer media
-Muestra valores > a la me
+Muestra valores > a la media
