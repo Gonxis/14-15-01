@@ -41,7 +41,7 @@ public class Main {
     private static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) throws IOException {
         
-        System.out.print("Introduce número de elementos de la Array Unidimensional: ");
+        System.out.print("Introduce número de elementos de la Array Unidimensional aquí: ");
         int dim = Integer.parseInt(stdin.readLine());
         int [] array = new int [dim];
         int pos = 0, valor = 0;
@@ -61,49 +61,43 @@ public class Main {
         Main.apartado_b_y_c(array, dim);
     }
     
-    private static void correcto (int dim, int pos){
+    private static void correcto (int dim, int pos){ //A no ser que la dimension de la Array sea mayor a 1 y que la posicion que le introduzcamos sea menor a la dimension, no nos dejará introducir el valor deseado
         if ((dim < 0) || (pos > dim)){
             Runtime.getRuntime().exit(0);
         }
     }
     
-    private static void apartado1 (int [] array){
+    private static void apartado1 (int [] array){ //Introduce valores enteros de 0 - 100 dentro de la array y la muestra
         for (int i = 0; i < array.length; i++){
             array [i] = (int) (Math.random()*101);
-        }
-        for (int i = 0; i < array.length; i++){
-            System.out.print(array [i] + "  ");
+            System.out.print(array [i] + " ");
         }
         System.out.println("");
         System.out.println("");
     }
     
-    private static void apartado_a (int [] array){
+    private static void apartado_a (int [] array){ //Muestra la Array modificada
         for (int i = 0; i < array.length; i++){
             System.out.print(array [i] + "  ");
         }
         System.out.println("");
     }
     
-    private static void apartado_b_y_c (int [] array, int dim){
+    private static void apartado_b_y_c (int [] array, int dim){ //Muestra el valor mayor y el menor de la Array, la media y los valores por encima de ella
         
-        int mayor = 0, menor = 100;
+        int mayor = 0, menor = 100, suma = 0;
         for (int i = 0; i < array.length; i++){
             if (array [i] > mayor){
                 mayor = array [i];
             } else if (array [i] < menor){
                 menor = array [i];
             }
+            suma = array [i] + suma;
         }
         System.out.println("");
         System.out.println("El valor mayor de la Array es " + mayor);
         System.out.println("El valor menor de la Array es " + menor); 
-        System.out.println("");
-        
-        int suma = 0;
-        for (int i = 0; i < array.length; i++){
-            suma = array [i] + suma;
-        } 
+        System.out.println(""); 
         
         int media = suma/dim;
         System.out.println("La media es " + media);
