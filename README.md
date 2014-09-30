@@ -3,10 +3,10 @@
 
 01
 ￼￼￼￼Solicitar elementos al usuario
-￼￼￼￼￼￼Crear Array
+OR ￼￼￼￼￼￼Crear Array
 ￼￼￼￼Añadir valores
 
-￼￼￼￼￼￼Error
+OR ￼￼￼￼￼￼Error
 ￼￼￼￼Salir
 
 A
