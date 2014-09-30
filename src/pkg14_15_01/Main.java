@@ -41,7 +41,7 @@ public class Main {
     private static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) throws IOException {
         
-        System.out.print("Introduce número de elementos de la Array Unidimensional aquí: ");
+        System.out.print("Introduce número de elementos de la Array Unidimensional aquí: "); //
         int dim = Integer.parseInt(stdin.readLine());
         int [] array = new int [dim];
         int pos = 0, valor = 0;
